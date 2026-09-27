@@ -9,3 +9,9 @@ Importen krever eksplisitt `finished`, FIKS-ID som samsvarer med kanonisk kilde-
 NFF opplyser på siden at automatiserte roboter ikke er tillatt. Denne versjonen henter derfor ikke nettsiden automatisk. Den tar imot et kontrollert snapshot; videre automatisk innhenting krever en godkjent datatilgang. Den eksisterende Fotballrobotens serverkode er ikke i dette repositoryet og er ikke flyttet hit ennå.
 
 Kjør `npm test` og `npm run typecheck` ved endringer. Neste steg er en vedvarende hendelseslagring, kildeavtale/importgrensesnitt og Studio-visning av utkast til vurdering.
+
+## Eksport til Studio
+
+`npm run export:studio -- /privat/robot-inbox.json examples/bremnes-viggo-8985491.json` lager en versjonert JSON-innboks for Studio. Flere snapshot-filer kan oppgis; samme hendelses-ID eksporteres bare én gang. Eksporten skriver først en midlertidig fil og flytter den på plass når den er komplett. Filen må overføres til Studio sin private `config/robot-inbox.json` når Studio er klart; dette skjer ikke automatisk. Se `docs/robot-inbox.md` i Studio-repoet.
+
+Testtilgangen til fotballdata.no er ventet og gyldig ut oktober 2026. En kildeadapter bygges når dokumentasjon, tilgangsvilkår og et eksempel på faktisk API-respons foreligger. Ingen token skal inn i snapshot eller Git.
