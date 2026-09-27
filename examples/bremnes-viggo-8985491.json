@@ -1,0 +1,14 @@
+{
+  "source": "fotball.no",
+  "sourceId": "8985491",
+  "sourceUrl": "https://www.fotball.no/fotballdata/kamp/?fiksId=8985491",
+  "observedAt": "2026-09-27T12:24:00+02:00",
+  "status": "finished",
+  "kickoff": "2026-09-25T19:00:00+02:00",
+  "competition": "5. div. menn avd. 03",
+  "venue": "ScaleAQ Stadion",
+  "homeTeam": "Bremnes",
+  "awayTeam": "Viggo",
+  "homeScore": 2,
+  "awayScore": 2
+}
