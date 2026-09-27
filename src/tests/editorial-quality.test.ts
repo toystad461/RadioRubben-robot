@@ -26,7 +26,7 @@ test("reglene sendes til språkvask og godkjent tekst får versjon", async () =>
 
 test("tvetydig spillerbytte og feil resultat stopper publisering", async () => {
   const result = await reviewArticle(good, facts, async () => ({
-    ...good, body: "25. september 2026: Ola Olsen erstattet Per Pedersen. Bremnes slo Viggo 3–1."
+    title: "Bremnes slo Viggo 3–1", body: "25. september 2026: Ola Olsen erstattet Per Pedersen. Bremnes slo Viggo 3–1."
   }));
   assert.equal(result.publishable, false);
   assert.match(result.findings.join(" "), /sluttresultat/);
