@@ -1,4 +1,7 @@
 import { EDITORIAL_RULES_VERSION, editorialPrompt } from "./editorial-rules.js";
+import { createHash } from "node:crypto";
+
+export const AI_POLICY_VERSION = "1.0.0";
 
 export interface VerifiedMatchFacts {
   homeTeam: string;
@@ -20,7 +23,11 @@ export interface ReviewResult {
   article: ArticleDraft;
   findings: readonly string[];
   rulesVersion: string;
-  publishable: boolean;
+  aiPolicyVersion: string;
+  articleSha256: string;
+  factsSha256: string;
+  readyForEditorialApproval: boolean;
+  publishable: false;
 }
 
 export type LanguageReviewer = (input: {
@@ -59,9 +66,9 @@ function check(article: ArticleDraft, facts: VerifiedMatchFacts): string[] {
 }
 
 /**
- * Reviews a generated article before any WordPress write. The caller must pass
- * independently verified facts and publish only if publishable is true.
- * A failed or unavailable reviewer blocks publication instead of passing the draft through.
+ * Technical review only. This repository has no authenticated human approval
+ * or publishing boundary. A successful review must never grant publication.
+ * Hashes identify reviewed inputs; they do not prove source truth or approval.
  */
 export async function reviewArticle(
   draft: ArticleDraft,
@@ -78,5 +85,8 @@ export async function reviewArticle(
     instructions: `${editorialPrompt()}\nSpråkvask tittel og brødtekst. Rett tegnsetting, tvetydighet, repetisjoner og unaturlig AI-språk. Kontroller alle spillerbytter mot playerIn/playerOut. Sammenlign navn, dato og resultat med faktagrunnlaget. Returner bare revidert tittel og brødtekst. Ved usikkerhet: behold faktum og la kontrollen stoppe publisering.`
   });
   const findings = check(article, facts);
-  return { article, findings, rulesVersion: EDITORIAL_RULES_VERSION, publishable: findings.length === 0 };
+  const sha256 = (value: unknown) => createHash("sha256").update(JSON.stringify(value)).digest("hex");
+  return { article, findings, rulesVersion: EDITORIAL_RULES_VERSION,
+    aiPolicyVersion: AI_POLICY_VERSION, articleSha256: sha256(article), factsSha256: sha256(facts),
+    readyForEditorialApproval: findings.length === 0, publishable: false };
 }
