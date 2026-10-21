@@ -1,5 +1,22 @@
 # Radio Rubben – arbeidsregler
 
+## Bekreftelse og neste handling
+
+Avklart med Thomas 21.10.2026 for utviklings- og driftssamtaler:
+
+- Fullfør det bekreftede, avgrensede steget med nødvendige kontroller og
+  feilrettinger. Ikke be om samme bekreftelse for hvert delsteg.
+- Avslutt med hva som er bekreftet, pågående og uavklart. Foreslå én konkret
+  neste handling, forklar omfang og forventet resultat, og be Thomas bekrefte
+  før dette neste steget starter. Allerede uttrykkelig godkjente steg kan fullføres.
+- «Ja», «utfør» eller «fortsett» gjelder det beskrevne steget, ikke generell
+  tillatelse til andre oppgaver, merge eller utrulling.
+- Hvis Thomas må handle selv, oppgi verifisert lenke eller konkret app/side,
+  hva han skal trykke på eller kjøre, og hvilket resultat han skal se.
+  Merk kommandoer med Windows, Mac eller VPS; ikke finn på tilgang eller lenker.
+- Bekreftelse på utviklingsarbeid er separat fra redaksjonell godkjenning.
+  Denne arbeidsregelen innfører ikke godkjenning av hvert TTS-innslag.
+
 Start i docs/DEVELOPMENT.md. Dette TypeScript-repoet er en grunnstruktur med
 RSS- og kvalitetsmoduler, ikke påvist aktiv produksjonsjournalist. Studio har
 egen PHP-nyhetsflyt og Web har Fotballrobot. Gjenbruk eksisterende kildekontrakter;
