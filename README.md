@@ -1,5 +1,8 @@
 # RadioRubben-robot
 
+Start med [AGENTS.md](AGENTS.md) og [utviklingsguiden](docs/DEVELOPMENT.md).
+Repoet er foreløpig en grunnstruktur; npm start starter ikke en aktiv redaksjonell worker.
+
 **RR Robot** er Radio Rubbens digitale redaksjonsmotor.
 
 Målet er å samle data fra identifiserbare kilder, normalisere dem til redaksjonelle hendelser og bruke dem videre i Fotballroboten, nyhetsdesk, radiomanus, RadioRubben.no, studio.radiorubben.no og sosiale medier.
